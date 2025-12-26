@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Easy Merch Research</title>
+    <link rel="stylesheet" href="scripts/css/designs.css">
+    <link rel="stylesheet" href="scripts/css/icons.css">
+</head>
+<body>
+    <div class="sidebar">
+        <div class="floating-icons">
+            <a href="https://www.youtube.com/@EasyMerchResearch" target="_blank" style="background: #ff0000;">
+                <i class="fab fa-youtube"></i>
+            </a>
+            <a href="https://discord.gg/mVehuNZSAu" target="_blank" style="background: #5865f2;">
+                <i class="fab fa-discord"></i>
+            </a>
+            <a href="https://easy-merch-research.blogspot.com/" target="_blank" style="background: #333;">
+                <i class="fas fa-globe"></i>
+            </a>
+            <a href="https://ko-fi.com/easy_merch_research" target="_blank" style="background: #003087;">
+                <i class="fas fa-donate"></i>
+            </a>
+        </div>
+        <hr/>
+        <div class="buttons">
+            <button class="import" id="importBtns">Import</button>
+            
+            <div class="export-container">
+                <button class="export" id="exportBtns">Export</button>
+                <div class="export-options" id="export-options">
+                  <button class="exportCSV">CSV</button>
+                  <button class="exportJSON">JSON</button>
+                </div>
+              </div>
+        </div>
+        <hr/>
+        <div class="menu">
+            <ul>
+                <li class="fltrPannel" id="fltrPannel">Filter Panel</li>
+                <li class="lstMaker" id="lstMaker">Listing Maker</li>
+                <li class="loadBtn" id="loadBtn">Load Database</li>
+                <li class="deleteBtn" id="deleteBtn">Delete Database</li>
+                <li class="importFile" id="importFiles">Upload Csv/Json</li>
+            </ul>
+        </div>
+    </div>
+    <div id="scroll-container">
+        <div id="virtual-list">
+            <!-- Cards will be dynamically inserted here -->
+        </div>
+    </div>
+    <div class="easy-merch-research-main" style="display: none;">
+
+        <div class="easy-merch-research-container">
+         <div class="scroller">
+    
+        <!--- Filter Panel --->
+    
+         <div class="filter-panel">
+            <!-- First two fields - Search Term and Hidden Keywords -->
+            <div class="item-container-column">
+                <input type="text" id="filterTerm" placeholder="Search term">
+                <textarea type="text" id='exclude-term' placeholder="Exclude keyword1,keyword2,keyword3..etc" class="search-input"></textarea>
+            </div>
+            <div class="item-container-row">
+                <div class="item-container-column">
+                    <label for="pR">Price range :</label>
+                    <div class="item-container-row" id="pR">
+                        <input type="number" id="minfPrice" placeholder="$13.38" min="0" required="">
+                        <label for="maxfPrice">-</label>
+                        <input type="number" id="maxfPrice" placeholder="$33+" min="0" required="">
+                    </div>
+                </div>
+                <div class="item-container-column">
+                    <label for="bR">Bsr range :</label>
+                    <div class="item-container-row" id="bR">
+                        <input type="number" id="minBsr" class="minBsr" placeholder="0" min="0" required="">
+                        <label for="maxBsr">-</label>
+                        <input type="number" id="maxBsr" class="maxBsr" placeholder="10000000+" min="0" required="">
+                    </div>
+                </div>
+                <div class="item-container-column">
+                    <label for="dR">Date range :</label>
+                    <div class="item-container-row" id="dR">
+                        <input type="datetime" id="minDate" class="minDate" placeholder="MM/DD/YYYY" min="0" required="">
+                        <label for="maxDate">-</label>
+                        <input type="datetime" id="maxDate" class="maxDate" placeholder="MM/DD/YYYY" min="0" required="">
+                    </div>
+                </div>
+            </div>
+            <!-- Search Button -->
+            <div class="item-container-row">
+                <div class="products-sorts">
+                    <button class="best-sellers-sort">Best Sellers</button>
+                    <button class="bsr-sort">BSR</button>
+                    <button class="date-sort">Date</button>
+                    <button class="price-sort">Price</button>
+                </div>
+                <button id="filterBtn">Filter</button>
+                <span id="clearBtn">Clear Filters</span>
+            </div>
+            <div class="item-container-row" style="align-items: center;align-self: center;display:none !important ;    margin-bottom: 40px;">
+                <input accept=".csv,.json" id="csvFile" type="file" multiple="">
+                <br>
+            </div>
+ 
+    </div>
+    </div>
+    </div>
+    </div>
+
+    <div style="position: fixed;top: 50%; left:0; z-index: 99999999999"><div class="switch-container onOff" id="show">
+        <img src="chrome-extension://fopnogilfnckfhkjiafjmffmpnhogcel/assets/images/logo.png" id="onImButton">
+    </div>
+            <div id="customAlert" class="modal">
+           <div class="modal-content">
+               <span class="close-btn">×</span>
+               <div id="alertIcon" class="alert-icon"></div>
+               <h2 id="alertTitle"></h2>
+               <p id="alertMessage"></p>
+               <div id="confirmButtons" class="button-group">
+                   <button id="confirmBtn">Confirm</button>
+                   <button id="cancelBtn">Cancel</button>
+               </div>
+           </div>
+       </div></div>
+<script src="scripts/js/designs.js"></script>
+</body>
+</html>

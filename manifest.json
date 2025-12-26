@@ -1,0 +1,52 @@
+{
+   "action": {
+      "default_icons": {
+         "128": "assets/icons/icon128.png",
+         "16": "assets/icons/icon16.png",
+         "32": "assets/icons/icon32.png",
+         "48": "assets/icons/icon48.png"
+      },
+      "default_popup": "./index.html"
+   },
+   "background": {
+      "service_worker": "scripts/js/background.js"
+   },
+   "content_scripts": [ {
+      "css": [ "scripts/css/research.css", "scripts/css/icons.css" ],
+      "exclude_matches": [ "https://www.advertising.amazon.com/", "https://www.merch.amazon.com/*", "https://www.amazon.com/*dp*/*", "https://www.amazon.com/*dp*/*", "https://www.amazon.co.uk/*dp*/*", "https://www.amazon.co.uk/*dp*/*", "https://www.amazon.de/*dp*/*", "https://www.amazon.de/*dp*/*", "https://www.amazon.fr/*dp*/*", "https://www.amazon.fr/*dp*/*", "https://www.amazon.it/*dp*/*", "https://www.amazon.it/*dp*/*", "https://www.amazon.es/*dp*/*", "https://www.amazon.es/*dp*/*", "https://www.amazon.com/", "https://www.amazon.com/", "https://www.amazon.co.uk/", "https://www.amazon.co.uk/", "https://www.amazon.de/", "https://www.amazon.de/", "https://www.amazon.fr/", "https://www.amazon.fr/", "https://www.amazon.it/", "https://www.amazon.it/", "https://www.amazon.es/", "https://www.amazon.es/" ],
+      "js": [ "scripts/js/helpers/chart.js", "scripts/js/research.js" ],
+      "matches": [ "https://www.amazon.com/*", "https://www.amazon.com/*", "https://www.amazon.co.uk/*", "https://www.amazon.co.uk/*", "https://www.amazon.de/*", "https://www.amazon.de/*", "https://www.amazon.fr/*", "https://www.amazon.fr/*", "https://www.amazon.it/*", "https://www.amazon.it/*", "https://www.amazon.es/*", "https://www.amazon.es/*" ],
+      "run_at": "document_start"
+   }, {
+      "js": [ "scripts/js/suggestions.js" ],
+      "matches": [ "https://easy-merch-research.blogspot.com/", "https://www.easymerchresearch.com/" ],
+      "run_at": "document_end"
+   }, {
+      "css": [ "scripts/css/research.css" ],
+      "js": [ "scripts/js/product.js" ],
+      "matches": [ "https://www.amazon.com/dp/*", "https://www.amazon.com/*/dp/*", "https://www.amazon.co.uk/dp/*", "https://www.amazon.co.uk/*/dp/*", "https://www.amazon.de/dp/*", "https://www.amazon.de/*/dp/*", "https://www.amazon.fr/dp/*", "https://www.amazon.fr/*/dp/*", "https://www.amazon.it/dp/*", "https://www.amazon.it/*/dp/*", "https://www.amazon.es/dp/*", "https://www.amazon.es/*/dp/*" ],
+      "run_at": "document_start"
+   } ],
+   "content_security_policy": {
+      "extension_pages": "script-src 'self'; object-src 'self';"
+   },
+   "description": "Easy Merch Research™ is a toolkit that improves your Merch on Demand product management and research. ",
+   "host_permissions": [ "*://*.amazon.com/*", "*://*.amazon.de/*", "*://*.amazon.fr/*", "*://*.amazon.es/*", "*://*.amazon.it/*", "*://*.amazon.co.uk/*" ],
+   "icons": {
+      "128": "assets/icons/icon128.png",
+      "16": "assets/icons/icon16.png",
+      "32": "assets/icons/icon32.png",
+      "48": "assets/icons/icon48.png"
+   },
+   "incognito": "spanning",
+   "manifest_version": 3,
+   "name": "Easy Merch Research™",
+   "permissions": [ "contextMenus","downloads", "activeTab", "storage" ],
+   "key":"MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAwA1SaDrHzitwTKERrCoz6zJjM+1RF+U2Xg1tKX+6u8PuAd3Vj+NCsUxPaSoFwfvEFi1M0Q1JU5JiQkG2V/6niebKIksV4hKrzWvKFIoXkrohCLqhuo6eXG8EImbs6wXsbitOxnGK7Yl5HNqDKoC4VLOu3ZrIvWiByTgWsX42VIzXtQ3eLfAH4oytQwP5SD17lGW3B9N9ZLg8D8fRloERjEZUb/we0cYVdYRjwVqTbP/SPr5DLDCW1GK6tKMKh1kc5rdYFC4hpfQW7HPBtY2f6SIG5dW6X36uMfvG76gteoh1QUihoroQZ9W1rA8WsaRksALco0N0x8ybluDYinGNIQIDAQAB",
+   "short_name": "EMR",
+   "version": "2.0.0.3",
+   "web_accessible_resources": [ {
+      "matches": [ "https://www.amazon.com/*", "https://www.amazon.com/*", "https://www.amazon.co.uk/*", "https://www.amazon.co.uk/*", "https://www.amazon.de/*", "https://www.amazon.de/*", "https://www.amazon.fr/*", "https://www.amazon.fr/*", "https://www.amazon.it/*", "https://www.amazon.it/*", "https://www.amazon.es/*", "https://www.amazon.es/*" ],
+      "resources": [ "assets/images/*", "assets/webfonts/*" ]
+   } ]
+}
